@@ -18,9 +18,9 @@ public class IngredientsController : ControllerBase
     public IngredientsController(IIngredientsRepository repository, IMapper mapper, IMemoryCache memoryCache, ILogger<Ingredient> logger)
     {
         _repository = repository ?? throw new ArgumentNullException(nameof(repository));
-        _mapper = mapper;
-        _memoryCache = memoryCache;
-        _logger = logger;
+        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        _memoryCache = memoryCache ?? throw new ArgumentNullException(nameof(memoryCache));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
     
     // GET api/ingredients
