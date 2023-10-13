@@ -22,10 +22,10 @@ namespace RecipeHub.Controllers
 
         public RecipeIngredientController(RecipeDBContext context, IRecipeIngredientRepository recipeIngredientRepository, IMapper mapper, ILogger<RecipeIngredient> logger)
         {
-            _context = context;
-            _mapper = mapper;
-            _recipeIngredientRepository = recipeIngredientRepository;
-            _logger = logger;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _recipeIngredientRepository = recipeIngredientRepository ?? throw new ArgumentNullException(nameof(recipeIngredientRepository));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
 
