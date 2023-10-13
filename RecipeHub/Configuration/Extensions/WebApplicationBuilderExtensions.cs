@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using RecipeHub.Domain;
+﻿using Microsoft.EntityFrameworkCore;
 using RecipeHub.Infrastructure;
 using RecipeHub.Infrastructure.Repositories;
 
@@ -18,11 +16,6 @@ namespace RecipeHub.Configuration.Extensions
             });
 
             builder.Services.AddScoped<IIngredientsRepository, IngredientsRepository>();
-
-            //builder.Services.AddIdentity<User, Role>()
-            //    .AddEntityFrameworkStores<RecipeDBContext>();
-            //builder.Services.AddIdentityCore<Role>() // This is used to configure RoleManager
-            //    .AddRoleManager<RoleManager<Role>>();
 
             return builder;
         }
