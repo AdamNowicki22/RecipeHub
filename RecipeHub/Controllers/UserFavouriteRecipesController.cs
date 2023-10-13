@@ -16,8 +16,8 @@ namespace RecipeHub.Controllers
         public UserFavouriteRecipesController(IUserFavouriteRecipesRepository repository, IMapper mapper, ILogger<Ingredient> logger)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
-            _mapper = mapper;
-            _logger = logger;
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpGet("{userId}")]
