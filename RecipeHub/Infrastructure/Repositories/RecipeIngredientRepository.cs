@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RecipeHub.Domain;
 using RecipeHub.DTO_s;
-using RecipeHub.Infrastructure.Repositories;
 
 namespace RecipeHub.Infrastructure.Repositories
 {
