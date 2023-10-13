@@ -19,10 +19,10 @@ namespace RecipeHub.Controllers
 
         public RecipeController(IMapper mapper, IRecipeRepository recipeRepository,IRecipeIngredientRepository recipeIngredientRepository, ILogger<Recipe> logger)
         {
-            _mapper = mapper;
-            _recipeRepository = recipeRepository;
-            _recipeIngredientRepository = recipeIngredientRepository;
-            _logger = logger;
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _recipeRepository = recipeRepository ?? throw new ArgumentNullException(nameof(recipeRepository));
+            _recipeIngredientRepository = recipeIngredientRepository ?? throw new ArgumentNullException(nameof(recipeIngredientRepository));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpGet]
