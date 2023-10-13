@@ -1,7 +1,5 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
 using RecipeHub.Domain;
 using RecipeHub.DTO_s;
 using RecipeHub.Infrastructure.Repositories;
