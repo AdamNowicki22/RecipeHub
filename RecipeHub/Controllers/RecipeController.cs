@@ -2,17 +2,14 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using RecipeHub.Domain;
 using RecipeHub.DTO_s;
-using RecipeHub.Infrastructure;
 using RecipeHub.Infrastructure.Repositories;
 
 namespace RecipeHub.Controllers
 {
     [Route("api/Recipe")]
     [ApiController]
-    //[Authorize]
     public class RecipeController: ControllerBase
     {
         private readonly IRecipeRepository _recipeRepository;
@@ -116,7 +113,6 @@ namespace RecipeHub.Controllers
 
         }
 
-        //Update
         [HttpPut("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -140,7 +136,6 @@ namespace RecipeHub.Controllers
         }
 
 
-        // DELETE api/recipe/1
         [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
