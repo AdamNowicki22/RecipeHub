@@ -12,7 +12,7 @@ public class IngredientsRepository : IIngredientsRepository
     public IngredientsRepository(RecipeDBContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
-        _mapper = mapper;
+        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
     
     public async Task<IEnumerable<Ingredient>> GetIngredients(string? search)
