@@ -8,7 +8,6 @@ namespace RecipeHub.Infrastructure
     {
         public DbSet<Ingredient> Ingredients => Set<Ingredient>();
         public DbSet<Recipe> Recipes => Set<Recipe>();
-        //public DbSet<User> Users =>Set <User>(); not necessary if user does not have extra properties
         public override DbSet<Role> Roles => Set<Role>();
         public DbSet<RecipeIngredient> RecipeIngredients => Set<RecipeIngredient>();
         public RecipeDBContext(DbContextOptions<RecipeDBContext> options):base(options) { }
