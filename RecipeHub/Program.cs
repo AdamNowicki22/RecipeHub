@@ -1,6 +1,5 @@
 using System.Reflection;
 using RecipeHub.Infrastructure;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using RecipeHub.Infrastructure.Repositories;
 using System.Net;
@@ -9,7 +8,6 @@ using System.Security.Claims;
 using System.Text;
 
 using System.Text.Json;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Serilog;
@@ -52,10 +50,6 @@ namespace RecipeHub
 
             builder.AddCors();
 
-
-
-            // Add services to the container.
-
             builder.Services.AddControllers(configure =>
             {
                 configure.CacheProfiles.Add("Any-60",
@@ -69,7 +63,6 @@ namespace RecipeHub
             {
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(options =>
                 {
@@ -178,7 +171,6 @@ namespace RecipeHub
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

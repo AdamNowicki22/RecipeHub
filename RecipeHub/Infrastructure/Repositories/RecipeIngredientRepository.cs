@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RecipeHub.Domain;
 using RecipeHub.DTO_s;
-using RecipeHub.Infrastructure.Repositories;
 
 namespace RecipeHub.Infrastructure.Repositories
 {
@@ -15,7 +14,7 @@ namespace RecipeHub.Infrastructure.Repositories
         public RecipeIngredientRepository(RecipeDBContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
-            _mapper = mapper;
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         public async Task<ActionResult<IEnumerable<int>>> GetAllIngredientIdsByRecipeId(int id)

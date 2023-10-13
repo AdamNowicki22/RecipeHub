@@ -1,7 +1,5 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
 using RecipeHub.Domain;
 using RecipeHub.DTO_s;
 using RecipeHub.Infrastructure.Repositories;
@@ -18,8 +16,8 @@ namespace RecipeHub.Controllers
         public UserFavouriteRecipesController(IUserFavouriteRecipesRepository repository, IMapper mapper, ILogger<Ingredient> logger)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
-            _mapper = mapper;
-            _logger = logger;
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpGet("{userId}")]

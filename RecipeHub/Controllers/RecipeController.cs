@@ -2,17 +2,14 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using RecipeHub.Domain;
 using RecipeHub.DTO_s;
-using RecipeHub.Infrastructure;
 using RecipeHub.Infrastructure.Repositories;
 
 namespace RecipeHub.Controllers
 {
     [Route("api/Recipe")]
     [ApiController]
-    //[Authorize]
     public class RecipeController: ControllerBase
     {
         private readonly IRecipeRepository _recipeRepository;
@@ -22,10 +19,10 @@ namespace RecipeHub.Controllers
 
         public RecipeController(IMapper mapper, IRecipeRepository recipeRepository,IRecipeIngredientRepository recipeIngredientRepository, ILogger<Recipe> logger)
         {
-            _mapper = mapper;
-            _recipeRepository = recipeRepository;
-            _recipeIngredientRepository = recipeIngredientRepository;
-            _logger = logger;
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _recipeRepository = recipeRepository ?? throw new ArgumentNullException(nameof(recipeRepository));
+            _recipeIngredientRepository = recipeIngredientRepository ?? throw new ArgumentNullException(nameof(recipeIngredientRepository));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpGet]
@@ -116,7 +113,6 @@ namespace RecipeHub.Controllers
 
         }
 
-        //Update
         [HttpPut("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -140,7 +136,6 @@ namespace RecipeHub.Controllers
         }
 
 
-        // DELETE api/recipe/1
         [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

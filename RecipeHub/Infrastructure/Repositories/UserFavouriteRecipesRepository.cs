@@ -1,7 +1,5 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using RecipeHub.Domain;
-using Serilog;
 
 namespace RecipeHub.Infrastructure.Repositories
 {
@@ -38,15 +36,6 @@ namespace RecipeHub.Infrastructure.Repositories
             await _dbContext.UserFavouriteRecipes.AddAsync(favouriteRecipe);
             await _dbContext.SaveChangesAsync();
 
-            //if (user != null && recipe != null)
-            //{
-            //    if (!user.FavouriteRecipes.Any(uf => uf.RecipeId == recipeId))
-            //    {
-            //        user.FavouriteRecipes.Add(new UserFavouriteRecipes { UserId = userId, RecipeId = recipeId });
-            //        await _dbContext.SaveChangesAsync();
-            //        return true;
-            //    }
-            //}
             return false;
         }
 
