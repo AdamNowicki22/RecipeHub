@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using RecipeHub.Domain;
-
-namespace RecipeHub.DTO_s;
+﻿namespace RecipeHub.DTO_s;
 
 public class RecipeByIngredientsDTO
 {
