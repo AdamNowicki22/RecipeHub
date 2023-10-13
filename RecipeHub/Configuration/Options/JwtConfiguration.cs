@@ -6,7 +6,6 @@ public class JwtConfiguration
 {
     public static readonly string SectionName = "Authentication:Jwt";
 
-    // causes an error if not set in appsettings.json
     [Required]
     [MaxLength(64)]
     public string Issuer { get; set; } = default!;
